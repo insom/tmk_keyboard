@@ -68,12 +68,20 @@ ARMV = 7
 #
 #BOOTMAGIC_ENABLE = yes	# Virtual DIP switch configuration
 ## BOOTMAGIC is not supported on STM32 chips yet.
-MOUSEKEY_ENABLE = yes	# Mouse keys
+MOUSEKEY_ENABLE = no # Mouse keys
 EXTRAKEY_ENABLE = yes	# Audio control and System control
 # CONSOLE_ENABLE = yes	# Console for debug
 COMMAND_ENABLE = yes    # Commands for debug and configuration
 SLEEP_LED_ENABLE = no   # Breathing sleep LED during USB suspend
 NKRO_ENABLE = yes	    # USB Nkey Rollover
 
+PS2_USE_BUSYWAIT ?= yes
+
+VPATH += $(TARGET_DIR)
+VPATH += $(TMK_DIR)
+
+include $(TMK_DIR)/protocol.mk
+#include $(TMK_DIR)/common.mk
+#include $(TMK_DIR)/rules.mk
 include $(TMK_DIR)/tool/chibios/common.mk
 include $(TMK_DIR)/tool/chibios/chibios.mk

@@ -9,7 +9,7 @@ endif
 
 ifeq (yes,$(strip $(PS2_USE_BUSYWAIT)))
     SRC += protocol/ps2_busywait.c
-    SRC += protocol/ps2_io_avr.c
+    SRC += protocol/ps2_io.c
     OPT_DEFS += -DPS2_USE_BUSYWAIT
 endif
 
